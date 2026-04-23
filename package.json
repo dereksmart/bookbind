@@ -1,0 +1,17 @@
+{
+  "name": "bookbind",
+  "version": "0.1.0",
+  "description": "Convert markdown, text, and directories of content into Kindle-friendly EPUB files",
+  "type": "module",
+  "bin": {
+    "bookbind": "./cli.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "epub-gen-memory": "^1.1.2",
+    "marked": "^14.1.0"
+  }
+}
