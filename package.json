@@ -1,6 +1,6 @@
 {
   "name": "bookbind",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Convert markdown, text, and directories of content into Kindle-friendly EPUB files",
   "type": "module",
   "bin": {

@@ -2,15 +2,15 @@
 
 Rough ordering. Not a schedule.
 
-## v0.2 — Single-file chapter splitting
+## v0.2 — Single-file chapter splitting ✓
 
-**Driving use case:** a speaking script (`# Title` then many `## Slide N — Title`) read on Kindle without the slides. Today bookbind crams the whole thing into one chapter; every `##` should be a navigable chapter instead.
+**Driving use case:** a speaking script (`# Title` then many `## Slide N — Title`) read on Kindle without the slides. Every `##` is now a navigable chapter.
 
-- [ ] Auto-split a single `.md` file when it has ≥2 `##` headings
-- [ ] Extract book title from first `# Heading` (flag `-t` still wins)
-- [ ] Content before the first `##` prepends to the first chapter (no phantom "Introduction")
-- [ ] `--no-split` escape hatch
-- [ ] `--split-on h2|h3` for files that use `#` as chapter markers
+- [x] Auto-split a single `.md` file when it has ≥2 `##` headings
+- [x] Extract book title from first `# Heading` (flag `-t` still wins)
+- [x] Content before the first `##` prepends to the first chapter (no phantom "Introduction")
+- [x] `--no-split` escape hatch
+- [x] `--split-on <level>` for files that use `#` or `###` as chapter markers
 
 ## v0.3 — Better defaults
 

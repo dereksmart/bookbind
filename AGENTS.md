@@ -11,12 +11,16 @@ A small Node CLI that converts markdown, plain text, or a directory of mixed con
 ## Usage
 
 ```
-bookbind <input> [-o out.epub] [-t title] [-a author] [-c cover.jpg] [--lang en] [--description ...]
+bookbind <input> [-o out.epub] [-t title] [-a author] [-c cover.jpg] [--lang en] [--description ...] [--no-split] [--split-on <1-6>]
 ```
 
 - Input can be a single `.md` / `.markdown` / `.txt` file, or a directory (recursively walked; hidden files skipped; text files sorted with a natural sort).
 - Images referenced by relative paths in markdown are resolved against the file's directory and rewritten to `file://` URLs so `epub-gen-memory` can inline them.
 - `.txt` is escaped and wrapped into `<p>` blocks on blank lines.
+
+### Single-file chapter splitting
+
+For a single markdown file, bookbind auto-splits into chapters at `##` headings when there are ≥2 of them. The first `# Heading` is pulled out as the book title (unless `-t` is passed). Content before the first `##` is prepended to the first chapter. `--no-split` disables this; `--split-on <level>` changes which heading level marks chapter boundaries. Directory inputs are never split — files are chapters.
 
 ## Conventions
 

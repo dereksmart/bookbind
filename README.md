@@ -40,6 +40,14 @@ bookbind ./chapters -t "The Collected Notes" -a "Derek Smart" -c cover.jpg
 | `-c, --cover <image>` | Cover image path |
 | `--lang <lang>` | Language code (default: `en`) |
 | `--description <desc>` | Book description |
+| `--no-split` | Keep a single markdown file as one chapter |
+| `--split-on <level>` | Heading level for chapter splitting (1-6, default: 2) |
+
+## Chapter splitting
+
+A single markdown file with multiple `##` headings is auto-split into chapters — each `##` heading becomes a navigable chapter on Kindle. The first `# Heading` in the file is used as the book title (overridden by `-t`). Content before the first `##` is prepended to the first chapter.
+
+For directories, each file is a chapter; splitting inside files is off.
 
 ## Input
 
