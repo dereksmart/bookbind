@@ -50,10 +50,11 @@ Image-heavy:
 
 ## v2.0 — Site-as-source
 
-Not single pages (those are v1.0). This is about treating a whole site as the corpus — selection, ordering, and curation UX.
+Not single pages (those are v1.0). This is about treating a whole site as the corpus — selection, ordering, and curation UX. Works against any site that exposes a feed (RSS/Atom) or a REST API (WP REST, Substack API, etc.).
 
-- [ ] **WordPress plugin:** site owner picks posts / category / tag / date range, clicks "Export as EPUB." Uses WP auth + block content directly. Primary surface for site owners who want a book of their own writing.
-- [ ] CLI site mode: `bookbind https://blog.example.com --posts 20` pulls the last N entries from the feed into one book.
+- [ ] **Terminal TUI for selection** (primary UX). `bookbind https://blog.example.com` enumerates posts and opens a paginated, searchable, multi-select list (via `@inquirer/prompts` or `ink`). Space to pick, enter to bind. Filters by tag/category/date. Works for any site with a feed, not just WP.
+- [ ] Flag-driven non-interactive mode for scripting / repeat runs: `--posts 20`, `--since 2024-01-01`, `--category essays`, `--include-slug ...`, `--exclude-slug ...`. The TUI can dump its selection as flags so you can re-run.
+- [ ] **WordPress plugin** (narrower UX variant). For non-technical site owners who live in wp-admin: pick posts / category / tag / date range, click "Export as EPUB." Same underlying binder, different surface.
 - [ ] Arbitrary-site crawl with a small config (allowlist, depth, ordering) — scope carefully; this is where things get messy.
 
 ## Later / maybe
