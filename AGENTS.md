@@ -24,3 +24,13 @@ bookbind <input> [-o out.epub] [-t title] [-a author] [-c cover.jpg] [--lang en]
 - ESM only (`import` syntax, top-level `await`). Node >= 18.
 - Keep it single-file until there's a real reason to split. No premature abstraction.
 - No comments that restate what the code does. Only add a comment when the *why* is non-obvious.
+
+## Roadmap
+
+`ROADMAP.md` tracks what's planned and in what rough order. **Keep it current:**
+
+- When a roadmap item ships, check it off (or remove it if it's fully absorbed).
+- When we decide on a new feature, add it to the appropriate section — don't let plans live only in chat.
+- When priorities shift, re-order. The roadmap is a living sketch, not a contract.
+
+If a change in this session touches something on the roadmap, update the roadmap in the same change.
