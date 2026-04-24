@@ -14,10 +14,12 @@ Rough ordering. Not a schedule.
 
 ## v0.3 — Better defaults
 
+- [x] Chapter title inference (directory mode): use the file's first heading as the chapter title, strip it from the body, fall back to filename. Turns `ch01-foo.md` with `# Chapter 1 — Foo` into a chapter titled "Chapter 1 — Foo" instead of "Ch01 foo".
+- [ ] `--include <glob>` / `--exclude <glob>` flags for directory mode, so meta files (CLAUDE.md, outline.md, style-guide.md, etc.) can be skipped without staging a temp dir.
 - [ ] Title page with book title + author
 - [ ] Opinionated default CSS (serif body, sans-serif headings, humane line-height)
 - [ ] `--css <file>` override
-- [ ] Chapter title inference: strip leading `Slide N — ` / numbering noise, or keep raw with a flag
+- [ ] Optional title cleanup: strip leading `Chapter N — ` / `Slide N — ` / numbering noise, behind a flag. Off by default — chapter numbering is often wanted.
 
 ## v1.0 — New input types
 

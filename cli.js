@@ -154,10 +154,36 @@ async function chaptersFromDirectory(dir) {
 
   const chapters = [];
   for (const file of textFiles) {
-    const html = await fileToHtml(file);
-    chapters.push({ title: titleFromFilename(file), content: html });
+    chapters.push(await chapterFromFile(file));
   }
   return { bookTitle: null, chapters };
+}
+
+async function chapterFromFile(file) {
+  const ext = extname(file).toLowerCase();
+  if (ext === ".txt") {
+    return { title: titleFromFilename(file), content: await fileToHtml(file) };
+  }
+  const raw = await readFile(file, "utf8");
+  const baseDir = dirname(file);
+  const tokens = marked.lexer(raw);
+
+  let title = null;
+  for (let i = 0; i < tokens.length; i++) {
+    const t = tokens[i];
+    if (t.type === "space") continue;
+    if (t.type === "heading") {
+      title = t.text;
+      tokens.splice(i, 1);
+    }
+    break;
+  }
+
+  const html = await marked.parse(joinRaw(tokens));
+  return {
+    title: title || titleFromFilename(file),
+    content: rewriteImagePaths(html, baseDir),
+  };
 }
 
 async function collectFiles(dir) {
