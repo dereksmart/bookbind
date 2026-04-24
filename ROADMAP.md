@@ -27,7 +27,8 @@ Text-shaped:
 - [ ] Obsidian vaults (wikilink rewriting)
 - [ ] Notion markdown exports
 - [ ] Single URL → readability extraction → one chapter
-- [ ] Anthology mode: list of URLs / feed → one book
+- [ ] YouTube URL → transcript (auto-captions or uploaded) → one chapter. Title/author/description from video metadata. Ideally strip filler, collapse speaker turns into paragraphs.
+- [ ] Anthology mode: list of URLs / feed → one book (mix of articles + YouTube transcripts in one bind)
 - [ ] Pocket / Instapaper / Readwise exports
 - [ ] RSS/Atom → periodic digest
 
