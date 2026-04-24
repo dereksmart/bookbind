@@ -21,16 +21,19 @@ Rough ordering. Not a schedule.
 
 ## v1.0 — New input types
 
-Text-shaped:
+URLs (all flavors of "point bookbind at a web thing"):
+
+- [ ] Single article URL → readability extraction → one chapter. Works for blog posts, Substack, Medium, docs pages — anything readability-friendly.
+- [ ] YouTube URL → transcript (auto-captions or uploaded) → one chapter. Title/author/description from video metadata. Ideally strip filler, collapse speaker turns into paragraphs.
+- [ ] Anthology mode: mix article URLs, YouTube URLs, and local files in one bind. Each becomes a chapter, in the order given.
+- [ ] RSS/Atom feed → the last N entries → one book (periodic digest workflow).
+
+Local text-shaped:
 
 - [ ] HTML files and zipped HTML bundles
 - [ ] Obsidian vaults (wikilink rewriting)
 - [ ] Notion markdown exports
-- [ ] Single URL → readability extraction → one chapter
-- [ ] YouTube URL → transcript (auto-captions or uploaded) → one chapter. Title/author/description from video metadata. Ideally strip filler, collapse speaker turns into paragraphs.
-- [ ] Anthology mode: list of URLs / feed → one book (mix of articles + YouTube transcripts in one bind)
 - [ ] Pocket / Instapaper / Readwise exports
-- [ ] RSS/Atom → periodic digest
 
 Format converters:
 
@@ -45,13 +48,13 @@ Image-heavy:
 - [ ] CBZ / CBR → EPUB for comics
 - [ ] OCR scanned pages (tesseract)
 
-## v2.0 — Websites
+## v2.0 — Site-as-source
 
-The parsing is easy; the UX is the hard part.
+Not single pages (those are v1.0). This is about treating a whole site as the corpus — selection, ordering, and curation UX.
 
-- [ ] **WordPress plugin:** site owner selects posts / category / tag / date range, clicks "Export as EPUB." Leans on existing WP auth + block content. Probably the right primary interface for sites.
-- [ ] CLI fallback: `bookbind https://blog.example.com --posts 20` crawls the feed.
-- [ ] Arbitrary-site crawl with a small config (allowlist, depth, ordering) — scope carefully, this is where things get messy.
+- [ ] **WordPress plugin:** site owner picks posts / category / tag / date range, clicks "Export as EPUB." Uses WP auth + block content directly. Primary surface for site owners who want a book of their own writing.
+- [ ] CLI site mode: `bookbind https://blog.example.com --posts 20` pulls the last N entries from the feed into one book.
+- [ ] Arbitrary-site crawl with a small config (allowlist, depth, ordering) — scope carefully; this is where things get messy.
 
 ## Later / maybe
 
